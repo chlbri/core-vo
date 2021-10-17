@@ -1,5 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { generate18Tests, generateTests, LengthOf, sliceArray, TupleOf } from 'core';
+import {
+  generate18Tests,
+  generateTests,
+  LengthOf,
+  sliceArray,
+  TupleOf,
+} from 'core';
 import {
   EXCEPTIONS,
   FormatedNumberValidator,
@@ -35,30 +41,14 @@ type ChainReturnType = ReturnType<typeof chain>;
 // #region Validators
 const requiredV = new RequiredValidator(EXCEPTIONS[404]);
 const numberMinV = new NumberMinValidator(5, EXCEPTIONS[502]);
-const numberExactV = new NumberExactValidator(
-  7,
-  EXCEPTIONS[541],
-);
+const numberExactV = new NumberExactValidator(7, EXCEPTIONS[541]);
 const numberMaxV = new NumberMaxValidator(10, EXCEPTIONS[551]);
-const numberRequiredV = new RequiredNumberValidator(
-  EXCEPTIONS[405],
-);
+const numberRequiredV = new RequiredNumberValidator(EXCEPTIONS[405]);
 
-const stringMinV = new StringMinLengthValidator(
-  5,
-  EXCEPTIONS[507],
-);
-const stringExactV = new StringExactLengthValidator(
-  7,
-  EXCEPTIONS[542],
-);
-const stringMaxV = new StringMaxLengthValidator(
-  10,
-  EXCEPTIONS[552],
-);
-const stringRequiredV = new StringRequiredValidator(
-  EXCEPTIONS[406],
-);
+const stringMinV = new StringMinLengthValidator(5, EXCEPTIONS[507]);
+const stringExactV = new StringExactLengthValidator(7, EXCEPTIONS[542]);
+const stringMaxV = new StringMaxLengthValidator(10, EXCEPTIONS[552]);
+const stringRequiredV = new StringRequiredValidator(EXCEPTIONS[406]);
 const stringNumberFormatedV1 = new FormatedNumberValidator(
   undefined,
   EXCEPTIONS[580],
@@ -175,10 +165,7 @@ const safExpecteds: TupleOf<SafeReturnType, Length> = [
   numberRequiredV.exception,
 ];
 
-const unSafExpecteds = valueActuals as TupleOf<
-  UnSafeReturnType,
-  Length
->;
+const unSafExpecteds = valueActuals as TupleOf<UnSafeReturnType, Length>;
 
 const isValidExpecteds: TupleOf<IsValidReturnType, Length> = [
   true,
@@ -215,7 +202,6 @@ describe('VO.isValid', () => {
 });
 
 describe('VO.chain', () => {
-
   generateTests(
     chain,
     chainActuals,

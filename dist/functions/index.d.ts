@@ -1,0 +1,11 @@
+import { ExceptionStatus, Status } from '../types';
+export * from './client';
+export * from './information';
+export * from './isN';
+export * from './permission';
+export * from './redirect';
+export * from './server';
+export * from './successfull';
+export * from './timeout';
+export declare function isStatus(val: number): val is Status;
+export declare function isStatusException(val: number): val is ExceptionStatus;

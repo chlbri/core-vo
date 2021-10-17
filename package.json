@@ -17,7 +17,6 @@
     "build": "tsc",
     "test": "jest",
     "lint": "yarn run build && yarn run eslint-fix",
-    "prepare": "tsc",
     "prettier": "prettier --write \"src/**/*.{ts,tsx}\"",
     "eslint": "eslint \"{src/**/*,App}.{ts,tsx}\"",
     "eslint-fix": "yarn run prettier && yarn run eslint --fix",

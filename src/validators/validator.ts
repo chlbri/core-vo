@@ -20,10 +20,7 @@ export class Validator<T = any> implements IValidator<T> {
     public validate: Condition<T>,
     public exception: Exception = EXCEPTIONS[404],
   ) {}
-  chain(
-    validator: Validator<T>,
-    exception: Exception = EXCEPTIONS[404],
-  ) {
+  chain(validator: Validator<T>, exception: Exception = EXCEPTIONS[404]) {
     const out = new Validator(
       (arg?: T) => this.validate(arg) && validator.validate(arg),
       exception,

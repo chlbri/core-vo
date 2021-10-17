@@ -1,10 +1,7 @@
 import type { CaseOf } from './types';
 import { Exception, IValidator } from './validators';
 
-
 type RV<T> = readonly IValidator<T>[];
-
-
 
 export class ValueObject<T = any, V extends RV<T> = any> {
   constructor(private value?: T, public validators?: V) {

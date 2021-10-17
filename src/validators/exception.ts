@@ -13,7 +13,6 @@ export class Exception<T extends ExceptionStatus = ExceptionStatus>
   toString(): string {
     return `Exception with status : ${this.status.toLocaleString()}`;
   }
-
 }
 
 type ExceptionObject = {

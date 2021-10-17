@@ -2,7 +2,6 @@ import { EXCEPTION_CODES, STATUS_CODES } from '../constants';
 import { isN } from '../functions/isN';
 import { ExceptionStatus, Status } from '../types';
 
-
 export * from './client';
 export * from './information';
 export * from './isN';
@@ -19,4 +18,3 @@ export function isStatus(val: number): val is Status {
 export function isStatusException(val: number): val is ExceptionStatus {
   return isN(EXCEPTION_CODES, val);
 }
-
