@@ -50,11 +50,12 @@ export class ValueObject<T = any, V extends RV<T> = any> {
     return this.isValid ? this : next;
   }
 
-  caseOf<R = any>({ then, error }: CaseOf<R>) {
+  caseOf<R = any>({ then, error, notDefined }: CaseOf<T, R>) {
     const safe = this.safe;
     if (safe instanceof Exception) {
       return error(safe);
     }
+    if (!safe) return notDefined();
     return then(safe);
   }
 }
@@ -64,3 +65,5 @@ export type SimpleObject<T> = T extends ValueObject<infer R>
   : T extends (...args: any[]) => any
   ? never
   : T;
+
+

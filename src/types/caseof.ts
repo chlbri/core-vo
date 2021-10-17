@@ -1,6 +1,7 @@
 import { Exception } from '../validators/exception';
 
-export type CaseOf<R = any> = {
+export type CaseOf<T, R = any> = {
   error: (exception: Exception) => R;
-  then: (value: any) => R;
+  then: (value: T) => R;
+  notDefined: () => R;
 };
