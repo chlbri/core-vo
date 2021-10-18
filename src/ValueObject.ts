@@ -65,5 +65,3 @@ export type SimpleObject<T> = T extends ValueObject<infer R>
   : T extends (...args: any[]) => any
   ? never
   : T;
-
-

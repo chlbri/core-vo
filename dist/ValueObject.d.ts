@@ -18,7 +18,7 @@ export declare class ValueObject<T = any, V extends RV<T> = any> {
      * @returns next if this is invalid
      */
     unChain(next: ValueObject): ValueObject;
-    caseOf<R = any>({ then, error }: CaseOf<R>): R;
+    caseOf<R = any>({ then, error, notDefined }: CaseOf<T, R>): R;
 }
 export declare type SimpleObject<T> = T extends ValueObject<infer R> ? R : T extends (...args: any[]) => any ? never : T;
 export {};

@@ -44,11 +44,13 @@ class ValueObject {
     unChain(next) {
         return this.isValid ? this : next;
     }
-    caseOf({ then, error }) {
+    caseOf({ then, error, notDefined }) {
         const safe = this.safe;
         if (safe instanceof validators_1.Exception) {
             return error(safe);
         }
+        if (!safe)
+            return notDefined();
         return then(safe);
     }
 }
